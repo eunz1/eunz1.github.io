@@ -1,1 +1,145 @@
-<!doctype html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>score</title><script defer="defer" src="/js/chunk-vendors.11460755.js"></script><script defer="defer" src="/js/app.452a03d6.js"></script><link href="/css/app.2cf79ad6.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but score doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta property="og:title" content="덤비라노">
+		<meta property="og:description" content="일찍자지마얘드라">
+		<meta property="og:image" content="./images/IMG_1107.JPG">
+    <title>공주들의 포천 다이다이🔥</title>
+    <link rel="stylesheet" href="./score.css">
+</head>
+<body>
+
+    <main class="score-board">
+        <h2 class="score-board__tit">❤️‍🔥 포천 다이다이 ❤️‍🔥 </h2>
+        <section class="score-board__cont">
+            <ul class="players">
+                <li class="players__itm">
+                    <figure class="players__pic">
+                        <img src="./images/IMG_0704.jpg" alt="">
+                    </figure>
+                    <div class="players__score">
+                        <strong class="players__name">ha__niz</strong>
+                        <em class="players__score-num">0</em>
+                        <span class="players__score-btn">
+                            <button type="button" class="players__score-plus"> + </button>
+                            <button type="button" class="players__score-minus"> - </button>    
+                        </span>
+                    </div>
+                    <div class="message">
+                        <p class="message__line">헷</p>
+                    </div>
+                </li>
+                <li class="players__itm">
+                    <figure class="players__pic">
+                        <img src="./images/IMG_0705.jpg" alt="">
+                    </figure>
+                    <div class="players__score">
+                        <strong class="players__name">n_s__._</strong>
+                        <em class="players__score-num">0</em>
+                        <span class="players__score-btn">
+                            <button type="button" class="players__score-plus"> + </button>
+                            <button type="button" class="players__score-minus"> - </button>    
+                        </span>
+                    </div>
+                    <div class="message">
+                        <p class="message__line">헷</p>
+                    </div>
+                </li>
+                <li class="players__itm">
+                    <figure class="players__pic">
+                        <img src="./images/IMG_0707.gif" alt="">
+                    </figure>
+                    <div class="players__score">
+                        <strong class="players__name">s__is__j</strong>
+                        <em class="players__score-num">0</em>
+                        <span class="players__score-btn">
+                            <button type="button" class="players__score-plus"> + </button>
+                            <button type="button" class="players__score-minus"> - </button>    
+                        </span>
+                    </div>
+                    <div class="message">
+                        <p class="message__line">헷</p>
+                    </div>
+                </li>
+                <li class="players__itm">
+                    <figure class="players__pic">
+                        <img src="./images/IMG_0706.jpg" alt="">
+                    </figure>
+                    <div class="players__score">
+                        <strong class="players__name">due_rano</strong>
+                        <em class="players__score-num">0</em>
+                        <span class="players__score-btn">
+                            <button type="button" class="players__score-plus"> + </button>
+                            <button type="button" class="players__score-minus"> - </button>    
+                        </span>
+                    </div>
+                    <div class="message">
+                        <p class="message__line">헷</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <aside>
+        <ul>
+            <li>
+                <button class="btn-winner">
+                    winner
+                </button>
+            </li>
+        </ul>
+    </aside>
+		<div class="pyro">
+			<div class="before"></div>
+			<div class="after"></div>
+	</div>
+    <script>
+        window.onload =()=>{
+            console.log('???z')
+            document.querySelector('.players').classList.add("hello")
+            let playersScore = document.querySelectorAll('.players__score');
+            playersScore.forEach((target)=>{
+                let scoreBtn = target.querySelectorAll('button')
+                scoreBtn.forEach((btn)=>{
+                    btn.addEventListener('click',(btn)=>{
+                        let itmBtn =  btn.target
+												let itmBtnScoreBox = itmBtn.parentElement.previousElementSibling
+                        let itmBtnScore = Number(itmBtnScoreBox.innerText)
+                        if(itmBtn.classList.contains('players__score-plus')){
+                            itmBtnScore++;
+														itmBtnScoreBox.innerText = itmBtnScore
+                        }else {
+													itmBtnScore--;
+													if(itmBtnScore >=0) {
+														itmBtnScoreBox.innerText = itmBtnScore
+													}
+													
+                        }
+                    })
+                })
+            })
+					
+						document.querySelector('.btn-winner').addEventListener('click',(winner)=>{
+							let winnerCount = 0
+							let winnerTemp;
+							document.querySelectorAll('.players__itm').forEach((players,i)=>{
+								console.log(players.querySelector('.players__score-num').innerText)
+								if(winnerCount < players.querySelector('.players__score-num').innerText){
+									winnerCount = players.querySelector('.players__score-num').innerText;
+									winnerTemp = players
+								}
+								
+							})
+							if(winnerTemp){
+								document.querySelector('.pyro').classList.add('hello')
+								winnerTemp.classList.add('winner')
+							}
+							
+						})
+        }
+    </script>
+</body>
+</html>
