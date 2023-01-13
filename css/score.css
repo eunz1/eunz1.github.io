@@ -151,7 +151,7 @@ table {
     border-spacing: 0;
 }
 button {appearance: none; border: none;}
-html,body {font-size:0.11848vw; font-family: 'Apple SD Gothic Neo';}
+html,body {font-size:0.11848vw; font-family: 'Apple SD Gothic Neo';touch-action: pan-y;}
 body {position:relative; height:100vh; height:100dvh; background:#232323;}
 h2.score-board__tit {margin-bottom:100rem; font-size :50rem;  font-weight: bold; text-align: center; color: #fff; }
 .score-board {position: absolute; top: 50%; left:50%; transform: translate(-50%,-50%);}
